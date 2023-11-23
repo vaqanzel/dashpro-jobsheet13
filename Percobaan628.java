@@ -1,30 +1,49 @@
 import java.util.Scanner;
 
 public class Percobaan628 {
-    public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+    // public static void main(String[] args) {
+    //     Scanner input = new Scanner(System.in);
 
-        // Menghitung luas persegi panjang
-        System.out.println("Masukkan panjang persegi panjang:");
-        double panjang = input.nextDouble();
-        System.out.println("Masukkan lebar persegi panjang:");
-        double lebar = input.nextDouble();
+    //     int p,l,t,L, vol;
 
-        double luas = panjang * lebar;
-        System.out.println("Luas persegi panjang: " + luas);
+    //     // Menghitung luas persegi panjang
+    //     System.out.println("Masukkan panjang");
+    //     p = input.nextInt();
+    //     System.out.println("Masukkan lebar");
+    //     l = input.nextInt();
+    //     System.out.println("Masukkan tinggi");
+    //     t = input.nextInt();
 
-        // Menghitung volume balok
-        System.out.println("\nMasukkan panjang balok:");
-        double panjangBalok = input.nextDouble();
-        System.out.println("Masukkan lebar balok:");
-        double lebarBalok = input.nextDouble();
-        System.out.println("Masukkan tinggi balok:");
-        double tinggiBalok = input.nextDouble();
+    //     L=p*l;
+    //     System.out.println("Luas persegi panjang adalah " + L);
 
-        double volume = panjangBalok * lebarBalok * tinggiBalok;
-        System.out.println("Volume balok: " + volume);
+    //     vol=p*l*t;
+    //     System.out.println("Volume balok adalah "+vol);
+       // }
+        static int hitungLuas (int pjg, int lb){
+            int Luas=pjg*lb;
+            return Luas;
+        }
+        static int hitungVolume (int tinggi, int a, int b){
+            int volume = hitungLuas(a,b)*tinggi;
+            return volume;
+        }
+        public static void main (String[] args){
+            Scanner input =new Scanner (System.in);
+            int p,l,t,L, vol;
+            System.out.println("\nMasukkan panjang");
+            p=input.nextInt();
+            System.out.println("\nMasukkan lebar");
+            l=input.nextInt();
+            System.out.println("\nMasukkan tinggi");
+            t=input.nextInt();
 
-        input.close();
-    }
+            L=hitungLuas (p,l);
+            System.out.println("Luas Persegi Panjang adalah "+L);
+            vol=hitungVolume(t,p,l);
+            System.out.println("Volume Balok adalah "+vol);
+        }
+        
+        
 }
 
