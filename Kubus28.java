@@ -1,44 +1,34 @@
 import java.util.Scanner;
 
 public class Kubus28 {
-    static int[][] nilaiTugas;
-    static String[] namaMahasiswa;
+    private double sisi;
 
-    public static void inputData() {
-        Scanner input = new Scanner(System.in);
-
-        System.out.print("Masukkan jumlah mahasiswa: ");
-        int jumlahMahasiswa = input.nextInt();
-        System.out.print("Masukkan jumlah tugas: ");
-        int jumlahTugas = input.nextInt();
-
-        nilaiTugas = new int[jumlahMahasiswa][jumlahTugas];
-        namaMahasiswa = new String[jumlahMahasiswa];
-
-        for (int i = 0; i < jumlahMahasiswa; i++) {
-            System.out.print("Masukkan nama Mahasiswa ke-" + (i + 1) + ": ");
-            namaMahasiswa[i] = input.next();
-            for (int j = 0; j < jumlahTugas; j++) {
-                System.out.print("Nilai Tugas " + (j + 1) + " " + namaMahasiswa[i] + ": ");
-                nilaiTugas[i][j] = input.nextInt();
-            }
-        }
-        input.close();
+    public Kubus28(double sisi) {
+        this.sisi = sisi;
     }
 
-    public static void tampilkanNilai() {
-        System.out.println("Nilai Tugas Mahasiswa:");
-        for (int i = 0; i < nilaiTugas.length; i++) {
-            System.out.print("Mahasiswa " + namaMahasiswa[i] + ": ");
-            for (int j = 0; j < nilaiTugas[i].length; j++) {
-                System.out.print(nilaiTugas[i][j] + " ");
-            }
-            System.out.println();
-        }
+    public double hitungVolume() {
+        return Math.pow(sisi, 3);
+    }
+
+    public double hitungLuasPermukaan() {
+        return 6 * Math.pow(sisi, 2);
     }
 
     public static void main(String[] args) {
-        inputData();
-        tampilkanNilai();
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Masukkan panjang sisi kubus: ");
+        double sisiKubus = scanner.nextDouble();
+
+        Kubus28 kubus = new Kubus28(sisiKubus);
+
+        double volume = kubus.hitungVolume();
+        System.out.println("Volume kubus dengan sisi " + sisiKubus + " adalah: " + volume);
+
+        double luasPermukaan = kubus.hitungLuasPermukaan();
+        System.out.println("Luas permukaan kubus dengan sisi " + sisiKubus + " adalah: " + luasPermukaan);
+
+        scanner.close();
     }
 }
